@@ -1,0 +1,16 @@
+#  For elasticsearch local http proxy
+
+version: '2'
+
+services:
+  esproxy-nginx:
+      image: nginx:alpine 
+      cpuset: '0' 
+      volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - ./conf.d:/etc/nginx/conf.d
+      #ports:
+      #  - "8080:8080"
+      network_mode: "host"
+      container_name: esproxy-nginx
+
